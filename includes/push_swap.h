@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:58:36 by samberna          #+#    #+#             */
-/*   Updated: 2024/11/30 15:01:08 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:17:13 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,29 @@ t_list	*ps_lstnew(int value);
 t_list	*ps_lstlast(t_list *head);
 void	ps_lstadd_front(t_list **stack, t_list *new);
 void	ps_lstadd_back(t_list **stack, t_list *new);
-void	ps_printList(t_list *head);
+void	ps_print_list(t_list *head);
 int		ps_lstsize(t_list *head);
 
 // push_swap func
-int	ps_pa(t_list **stack_a, t_list **stack_b);
-int	ps_pb(t_list **stack_a, t_list **stack_b);
-int	ps_sa(t_list **stack_a);
-int	ps_sb(t_list **stack_b);
-int	ps_ss(t_list **stack_a, t_list **stack_b);
-int	ps_ra(t_list **stack_a);
-int	ps_rb(t_list **stack_b);
-int	ps_rr(t_list **stack_a, t_list **stack_b);
-int	ps_rra(t_list **stack_a);
-int	ps_rrb(t_list **stack_b);
-int	ps_rrr(t_list **stack_a, t_list **stack_b);
-int	ps_push(t_list **stack_a, t_list **stack_b);
-int	ps_swap(t_list **stack);
-int	ps_rotate(t_list **stack);
-int	ps_reverse_rotate(t_list **stack);
+int		ps_pa(t_list **stack_a, t_list **stack_b);
+int		ps_pb(t_list **stack_a, t_list **stack_b);
+int		ps_sa(t_list **stack_a);
+int		ps_sb(t_list **stack_b);
+int		ps_ss(t_list **stack_a, t_list **stack_b);
+int		ps_ra(t_list **stack_a);
+int		ps_rb(t_list **stack_b);
+int		ps_rr(t_list **stack_a, t_list **stack_b);
+int		ps_rra(t_list **stack_a);
+int		ps_rrb(t_list **stack_b);
+int		ps_rrr(t_list **stack_a, t_list **stack_b);
+int		ps_push(t_list **stack_a, t_list **stack_b);
+int		ps_swap(t_list **stack);
+int		ps_rotate(t_list **stack);
+int		ps_reverse_rotate(t_list **stack);
 
 // algo
 void	ps_simple_sort(t_list **stack_a, t_list **stack_b);
 void	ps_radix_sort(t_list **stack_a, t_list **stack_b);
+int		ps_get_min_simple(t_list **stack, int val);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 12:18:29 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 15:02:45 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:08:47 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ps_index_stack(t_list **stack)
 	}
 }
 
-static void ps_init_stack_a(t_list **stack, int argc, char **argv)
+static void	ps_init_stack_a(t_list **stack, int argc, char **argv)
 {
 	t_list	*new;
 	char	**args;
@@ -83,8 +83,8 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (-1);
 	ft_check_args(argc, argv);
-	stack_a = (t_list **)malloc(sizeof(t_list*));
-	stack_b = (t_list **)malloc(sizeof(t_list*));
+	stack_a = (t_list **)malloc(sizeof(t_list *));
+	stack_b = (t_list **)malloc(sizeof(t_list *));
 	*stack_a = NULL;
 	*stack_b = NULL;
 	ps_init_stack_a(stack_a, argc, argv);

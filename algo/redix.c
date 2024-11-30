@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:53:00 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 14:59:41 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:16:43 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,20 @@ void	ps_radix_sort(t_list **stack_a, t_list **stack_b)
 			ps_pa(stack_a, stack_b);
 		i++;
 	}
+}
+
+int	ps_get_min_simple(t_list **stack, int val)
+{
+	t_list	*head;
+	int		min;
+
+	head = *stack;
+	min = head->index;
+	while (head->next)
+	{
+		head = head->next;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
+	}
+	return (min);
 }

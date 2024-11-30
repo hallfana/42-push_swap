@@ -6,55 +6,31 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:54:26 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 14:56:21 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:19:05 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	ps_get_min(t_list **stack, int val)
+static void	ps_sort_3_sub(t_list **phead, int *pmin, int *pnext_min,
+	t_list **stack_a)
 {
-	t_list	*head;
-	int		min;
-
-	head = *stack;
-	min = head->index;
-	while (head->next)
-	{
-		head = head->next;
-		if ((head->index < min) && head->index != val)
-			min = head->index;
-	}
-	return (min);
-}
-
-static void	ps_sort_3(t_list **stack_a)
-{
-	t_list	*head;
-	int		min;
-	int		next_min;
-
-	head = *stack_a;
-	min = ps_get_min(stack_a, -1);
-	next_min = ps_get_min(stack_a, min);
-	if (ps_is_sorted(stack_a))
-		return ;
-	if (head->index == min && head->next->index != next_min)
+	if ((*phead)->index == *pmin && (*phead)->next->index != *pnext_min)
 	{
 		ps_ra(stack_a);
 		ps_sa(stack_a);
 		ps_rra(stack_a);
 	}
-	else if (head->index == next_min)
+	else if ((*phead)->index == *pnext_min)
 	{
-		if (head->next->index == min)
+		if ((*phead)->next->index == *pmin)
 			ps_sa(stack_a);
 		else
 			ps_rra(stack_a);
 	}
 	else
 	{
-		if (head->next->index == min)
+		if ((*phead)->next->index == *pmin)
 			ps_ra(stack_a);
 		else
 		{
@@ -64,13 +40,27 @@ static void	ps_sort_3(t_list **stack_a)
 	}
 }
 
+static void	ps_sort_3(t_list **stack_a)
+{
+	t_list	*head;
+	int		min;
+	int		next_min;
+
+	head = *stack_a;
+	min = ps_get_min_simple(stack_a, -1);
+	next_min = ps_get_min_simple(stack_a, min);
+	if (ps_is_sorted(stack_a))
+		return ;
+	ps_sort_3_sub(&head, &min, &next_min, stack_a);
+}
+
 static void	ps_sort_4(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
 	if (ps_is_sorted(stack_a))
 		return ;
-	distance = ps_get_distance(stack_a, ps_get_min(stack_a, -1));
+	distance = ps_get_distance(stack_a, ps_get_min_simple(stack_a, -1));
 	if (distance == 1)
 		ps_ra(stack_a);
 	else if (distance == 2)
@@ -91,7 +81,7 @@ void	ps_sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
-	distance = ps_get_distance(stack_a, ps_get_min(stack_a, -1));
+	distance = ps_get_distance(stack_a, ps_get_min_simple(stack_a, -1));
 	if (distance == 1)
 		ps_ra(stack_a);
 	else if (distance == 2)
