@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:16:15 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 14:28:06 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:00:52 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,19 @@ int	ps_reverse_rotate(t_list **stack)
 	tail->next = *stack;
 	*stack = tail;
 	return (0);
+}
+
+void	ps_free_stack(t_list **stack)
+{
+	t_list	*head;
+	t_list	*tmp;
+
+	head = *stack;
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
+	free(stack);
 }

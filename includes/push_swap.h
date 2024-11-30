@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 11:58:36 by samberna          #+#    #+#             */
-/*   Updated: 2024/11/30 14:27:59 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:01:08 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_list
 void	ft_error(char *msg);
 void	ft_check_args(int argc, char **argv);
 void	ft_free(char **str);
+int		ps_get_distance(t_list **stack, int index);
+int		ps_is_sorted(t_list **stack);
+void	ps_free_stack(t_list **stack);
 
 // list utils
 t_list	*ps_lstnew(int value);
@@ -37,7 +40,7 @@ void	ps_lstadd_back(t_list **stack, t_list *new);
 void	ps_printList(t_list *head);
 int		ps_lstsize(t_list *head);
 
-//push_swap func
+// push_swap func
 int	ps_pa(t_list **stack_a, t_list **stack_b);
 int	ps_pb(t_list **stack_a, t_list **stack_b);
 int	ps_sa(t_list **stack_a);
@@ -53,5 +56,9 @@ int	ps_push(t_list **stack_a, t_list **stack_b);
 int	ps_swap(t_list **stack);
 int	ps_rotate(t_list **stack);
 int	ps_reverse_rotate(t_list **stack);
+
+// algo
+void	ps_simple_sort(t_list **stack_a, t_list **stack_b);
+void	ps_radix_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

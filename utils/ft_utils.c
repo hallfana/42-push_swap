@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 12:49:27 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 13:58:27 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 14:57:27 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,35 @@ void	ft_free(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+}
+
+int	ps_is_sorted(t_list **stack)
+{
+	t_list	*head;
+
+	head = *stack;
+	while (head && head->next)
+	{
+		if (head->value > head->next->value)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
+int	ps_get_distance(t_list **stack, int index)
+{
+	t_list	*head;
+	int		distance;
+
+	distance = 0;
+	head = *stack;
+	while (head)
+	{
+		if (head->index == index)
+			break ;
+		distance++;
+		head = head->next;
+	}
+	return (distance);
 }

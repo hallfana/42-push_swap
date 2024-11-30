@@ -6,7 +6,7 @@
 /*   By: hallfana <hallfana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 12:18:29 by hallfana          #+#    #+#             */
-/*   Updated: 2024/11/30 14:28:49 by hallfana         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:02:45 by hallfana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,16 @@ int	main(int argc, char **argv)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	ps_init_stack_a(stack_a, argc, argv);
-	ps_printList(*stack_a);
-	ps_sa(stack_a);
-	ps_printList(*stack_a);
+	if (ps_is_sorted(stack_a))
+	{
+		ps_free_stack(stack_a);
+		ps_free_stack(stack_b);
+		return (0);
+	}
+	if (ps_lstsize(*stack_a) <= 5)
+		ps_simple_sort(stack_a, stack_b);
+	else
+		ps_radix_sort(stack_a, stack_b);
 	free(stack_a);
 	free(stack_b);
 	return (0);
