@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	t_list	**stack_b;
 
 	if (argc < 2)
-		return (-1);
+		ft_error("Error\n");
 	ft_check_args(argc, argv);
 	stack_a = (t_list **)malloc(sizeof(t_list *));
 	stack_b = (t_list **)malloc(sizeof(t_list *));

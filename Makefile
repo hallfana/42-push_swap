@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRC) ./includes/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) ./includes/libft.a -g -o $(NAME)
 
 clean:
 	@true

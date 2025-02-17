@@ -29,7 +29,7 @@ static int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
-	if (num[0] == '-')
+	if (num[1] && (num[0] == '-' || num[0] == '+'))
 		i++;
 	while (num[i])
 	{
@@ -58,11 +58,11 @@ void	ft_check_args(int argc, char **argv)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			ft_error("Error");
+			ft_error("Error\n");
 		if (ft_contains(tmp, args, i))
-			ft_error("Error");
+			ft_error("Error\n");
 		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+			ft_error("Error\n");
 		i++;
 	}
 	if (argc == 2)

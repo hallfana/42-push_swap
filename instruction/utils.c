@@ -24,7 +24,7 @@ int	ps_swap(t_list **stack)
 	head = *stack;
 	next = head->next;
 	if (!head && !next)
-		ft_error("Error occured while swapping!");
+		ft_error("Error\n");
 	tmp_val = head->value;
 	tmp_index = head->index;
 	head->value = next->value;
