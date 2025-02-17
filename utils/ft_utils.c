@@ -14,8 +14,8 @@
 
 void	ft_error(char *msg)
 {
-	ft_putstr_fd(msg, 1);
-	exit(-1);
+	ft_putstr_fd(msg, 2);
+	exit(1);
 }
 
 void	ft_free(char **str)
