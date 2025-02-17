@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 		ps_simple_sort(stack_a, stack_b);
 	else
 		ps_radix_sort(stack_a, stack_b);
-	free(stack_a);
-	free(stack_b);
+	ps_free_stack(stack_a);
+	ps_free_stack(stack_b);
 	return (0);
 }
