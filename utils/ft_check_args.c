@@ -56,7 +56,7 @@ void	ft_check_args(int argc, char **argv)
 	}
 	while (args[i])
 	{
-		tmp = ft_atoi(args[i]);
+		tmp = ft_atol(args[i]);
 		if (!ft_isnum(args[i]))
 			ft_error("Error\n");
 		if (ft_contains(tmp, args, i))

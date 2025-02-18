@@ -31,6 +31,7 @@ void	ft_free(char **str);
 int		ps_get_distance(t_list **stack, int index);
 int		ps_is_sorted(t_list **stack);
 void	ps_free_stack(t_list **stack);
+long	ft_atol(char *ptr);
 
 // list utils
 t_list	*ps_lstnew(int value);
