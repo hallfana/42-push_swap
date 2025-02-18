@@ -3,6 +3,7 @@
 		"push_swap.h": "c",
 		"exm": "cpp",
 		"simple.C": "cpp",
-		"limits": "c"
+		"limits": "c",
+		"libft.h": "c"
 	}
 }

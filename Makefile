@@ -26,14 +26,20 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
+	make libft
 	$(CC) $(CFLAGS) $(SRC) ./includes/libft.a -g -o $(NAME)
 
 clean:
+	make -C ./includes clean
 	@true
 
 fclean: clean
+	make -C ./includes fclean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+libft:
+	make -C ./includes
+
+.PHONY: all clean fclean re libft
